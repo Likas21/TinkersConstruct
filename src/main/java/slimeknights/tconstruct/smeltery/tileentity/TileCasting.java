@@ -134,9 +134,7 @@ public abstract class TileCasting extends TileTable implements ITickable, ISided
     if(tank.getFluidAmount() == tank.getCapacity()) {
       timer++;
       if(!getWorld().isRemote) {
-        if(timer >= recipe.getTime()) {
-          TinkerCastingEvent.OnCasted event = TinkerCastingEvent.OnCasted.fire(recipe, this);
-          // done, finish!
+        if(timer >= 1) // done, finish!
           if(event.consumeCast) {
             // todo: play breaking sound and animation
             setInventorySlotContents(0, ItemStack.EMPTY);
